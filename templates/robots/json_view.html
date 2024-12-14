@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Robots</title>
+    <style>
+        body {
+            background-color: grey;
+            padding: 20px;
+        }
+        pre {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        h1 {
+            color: white;
+        }
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: white;
+            background-color: green;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Список роботов в формате JSON</h1>
+    <a href="{% url 'robots:robot_view' %}" class="btn">Вернуться</a>
+    <a href="{% url 'robots:robot_json' %}" class="btn">Скачать файл</a>
+
+    <pre>{{ json_data|safe }}</pre>
+</body>
+
+</html>
