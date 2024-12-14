@@ -84,9 +84,13 @@
                     <!-- Button to download robots.json -->
                     <a href="{% url 'robots:json_view' %}" class="btn btn-secondary mt-3">Роботы.json</a>
 
+                    <!-- Button to download robots.xlsx -->
+                    <a href="{% url 'robots:download_excel' %}" class="btn btn-secondary mt-3">Роботы.xlsx</a>
+
                     <!-- Form for adding a new robot -->
                     <form id="robotForm" class="form-hidden mt-3" action="{% url 'robots:robot_view' %}" method="POST">
-                       
+                        {% csrf_token %}
+
                         <div class="mb-3">
                             <label for="model" class="form-label text-white">Модель</label>
                             <input type="text" class="form-control" id="model" name="model" required>
