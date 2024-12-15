@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from django.urls import reverse_lazy
 
 from .models import Order
 from .forms import OrderForm
