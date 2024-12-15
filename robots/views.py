@@ -39,6 +39,7 @@ class RobotView(View):
         Returns:
             HttpResponse: Redirects to the page with robot cards or returns an error.
         """
+        serial = request.POST.get("serial")
         model = request.POST.get("model")
         version = request.POST.get("version")
         created = request.POST.get("created")
