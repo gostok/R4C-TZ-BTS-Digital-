@@ -53,7 +53,7 @@ class CustomerForm(forms.ModelForm):
         email_validator = EmailValidator()
         try:
             email_validator(email)
-        except ValidationError as ve:
-            raise ve("Введите корректный email адрес.")
+        except ValidationError:
+            raise ValidationError("Введите корректный email адрес.")
 
         return email
