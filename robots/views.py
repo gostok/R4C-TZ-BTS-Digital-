@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from django.http import JsonResponse, HttpResponse
 from django.views import View
 import json
@@ -56,7 +55,6 @@ class RobotView(View):
 
 
 class RobotApiView(View):
-    @csrf_exempt
     def post(self, request):
         """
         Handles POST requests to create a new robot via the API.
