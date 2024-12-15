@@ -126,3 +126,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"]  # Добавьте ваш домен
+
+
+# without sending real letters, output them to the console
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+# EMAIL_HOST = 'smtp.your-email-provider.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@example.com'
+# EMAIL_HOST_PASSWORD = 'your-email-password'
