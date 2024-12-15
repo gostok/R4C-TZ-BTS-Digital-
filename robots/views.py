@@ -46,10 +46,10 @@ class RobotView(View):
 
         # Input data validation
         if model not in VALID_MODELS:
-            return HttpResponse({"error": "Invalid model."}, status=400)
+            return JsonResponse({"error": "Invalid model."}, status=400)
 
         # Creating a new robot
-        robot = Robot(model=model, version=version, created=created)
+        robot = Robot(serial=serial, model=model, version=version, created=created)
         robot.save()
 
         return redirect("robots:robot_view")  # Redirect to a page with a list of robots
