@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from django.http import JsonResponse, HttpResponse
 from django.views import View
 import json
@@ -39,23 +38,23 @@ class RobotView(View):
         Returns:
             HttpResponse: Redirects to the page with robot cards or returns an error.
         """
+        serial = request.POST.get("serial")
         model = request.POST.get("model")
         version = request.POST.get("version")
         created = request.POST.get("created")
 
         # Input data validation
         if model not in VALID_MODELS:
-            return HttpResponse({"error": "Invalid model."}, status=400)
+            return JsonResponse({"error": "Invalid model."}, status=400)
 
         # Creating a new robot
-        robot = Robot(model=model, version=version, created=created)
+        robot = Robot(serial=serial, model=model, version=version, created=created)
         robot.save()
 
         return redirect("robots:robot_view")  # Redirect to a page with a list of robots
 
 
 class RobotApiView(View):
-    @csrf_exempt
     def post(self, request):
         """
         Handles POST requests to create a new robot via the API.
