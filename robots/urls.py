@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RobotView, RobotJson, JsonView, RobotApiView
+from .views import RobotView, RobotJson, JsonView, RobotApiView, RobotExcel
 
 
 app_name = "robots"
@@ -13,4 +13,7 @@ urlpatterns = [
     path(
         "api/robots/", RobotApiView.as_view(), name="robot_api"
     ),  # endpoint for working with JSON with API
+    path(
+        "download_excel/", RobotExcel.as_view(), name="download_excel"
+    ),  # To download Excel
 ]
